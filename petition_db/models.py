@@ -72,16 +72,16 @@ class Texts(models.Model):
     Armstrong_checked = models.BooleanField(choices=BOOL_CHOICES, blank=True)	
     Corrections = models.TextField(blank=True, null=True)	
     Last_action = models.DateTimeField(auto_now=True)	
-    Number_finder = models.CharField(max_length=255, blank=True, null=True)	
-    Genro = models.CharField(max_length=255, blank=True, null=True)	
-    Glitch = models.CharField(max_length=255, blank=True, null=True)	
+    Number_finder = models.CharField(max_length=255, blank=True, null=True)	#search result field - searches "Full Text" field for term"	
+    Genro = models.CharField(max_length=255, blank=True, null=True)	#search result field - searches "Full Text" field for term"	
+    Glitch = models.CharField(max_length=255, blank=True, null=True) #search result field - searches "Full Text" field for term"	
     Full_text_with_CR = models.TextField(blank=True, null=True)		
-    NEWLINE = models.CharField(max_length=255, blank=True, null=True)	
+    NEWLINE = models.CharField(max_length=255, blank=True, null=True) #search result field - searches "Full Text" field for term"	
     Processing = models.TextField(blank=True, null=True)	
 #    Authors::Author	
 #    Authors::Author_ID	
 #    Authors::Author_prefecture	
-    Count = models.CharField(max_length=255, blank=True, null=True)	
+    Count = models.CharField(max_length=255, blank=True, null=True)	#search result field - searches "Full Text" field for term"
 
     class Meta:
         verbose_name = 'Texts'
