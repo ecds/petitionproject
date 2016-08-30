@@ -43,7 +43,7 @@ class Authors(models.Model):
 #    Archive = models.CharField(max_length=255, blank=True, null=True)	
 #    Count = models.CharField(max_length=255, blank=True, null=True)	
 
-
+BOOL_CHOICES = ((True, 'Yes'), (False, 'No'))
 
 class Texts(models.Model):
 #repetition of data from petitions
@@ -66,10 +66,10 @@ class Texts(models.Model):
     Author = models.CharField(max_length=255, blank=True, null=True)	
     Addressee = models.CharField(max_length=255, blank=True, null=True)	
     Archive = models.CharField(max_length=255, blank=True, null=True)	
-    Date_unclear = models.BooleanField(blank=True)		
+    Date_unclear = models.BooleanField(choices=BOOL_CHOICES, blank=True)		
     Title_source =  models.CharField(max_length=255, blank=True, null=True, choices=(('From text', 'From text'),('Assigned by editors','Assigned by editors'),('Assigned by institution','Assigned by institution')))	
-    Ravina_checked = models.BooleanField(blank=True)	
-    Armstrong_checked = models.BooleanField(blank=True)	
+    Ravina_checked = models.BooleanField(choices=BOOL_CHOICES, blank=True)	
+    Armstrong_checked = models.BooleanField(choices=BOOL_CHOICES, blank=True)	
     Corrections = models.TextField(blank=True, null=True)	
     Last_action = models.DateTimeField(auto_now=True)	
     Number_finder = models.CharField(max_length=255, blank=True, null=True)	
