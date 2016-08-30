@@ -48,7 +48,7 @@ class Authors(models.Model):
 class Texts(models.Model):
 #repetition of data from petitions
     Sort_key = models.CharField(max_length=255, blank=True, null=True)	
-    Authors = models.ManyToManyField('Authors', blank=True)
+#    Authors = models.ManyToManyField('Authors', blank=True)
     Title = models.CharField(max_length=255, blank=True, null=True)	
     Clean_text = models.TextField(blank=True, null=True)	
     Year = models.IntegerField(max_length=4, blank=True, null=True)	
