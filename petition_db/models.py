@@ -71,7 +71,7 @@ class Texts(models.Model):
     Ravina_checked = models.BooleanField(blank=True)	
     Armstrong_checked = models.BooleanField(blank=True)	
     Corrections = models.TextField(blank=True, null=True)	
-    Last_action = models.CharField(max_length=255, blank=True, null=True)	
+    Last_action = models.DateTimeField(auto_now=True)	
     Number_finder = models.CharField(max_length=255, blank=True, null=True)	
     Genro = models.CharField(max_length=255, blank=True, null=True)	
     Glitch = models.CharField(max_length=255, blank=True, null=True)	

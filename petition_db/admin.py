@@ -19,6 +19,7 @@ class TextsAdmin(admin.ModelAdmin):
     search_fields = ('Sort_key','Title','Year')
     ordering = ('Sort_key',)
     filter_horizontal = ('Authors',)
+    readonly_fields = ("Last_action",)
 
 admin.site.register(Authors, AuthorsAdmin)
 admin.site.register(Texts, TextsAdmin)
