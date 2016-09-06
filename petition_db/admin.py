@@ -4,7 +4,7 @@ from import_export.admin import ImportExportModelAdmin
 from import_export import fields
 from import_export.widgets import ForeignKeyWidget, ManyToManyWidget
 from import_export.admin import ExportActionModelAdmin
-from petition_db.models import Authors, Texts
+from petition_db.models import Authors, Texts, Prefectures
 
 
 class TextsInline(admin.StackedInline):
@@ -30,3 +30,4 @@ class TextsAdmin(admin.ModelAdmin):
 
 admin.site.register(Authors, AuthorsAdmin)
 admin.site.register(Texts, TextsAdmin)
+admin.site.register(Prefectures)

@@ -46,6 +46,15 @@ class Authors(models.Model):
 
 BOOL_CHOICES = ((True, 'Yes'), (False, 'No'))
 
+class Prefectures(models.Model):
+    Prefectures = models.CharField(max_length=255, blank=True, null=True)
+
+    class Meta:
+        verbose_name = 'Prefectures'
+        verbose_name_plural = 'Prefectures'
+    def __unicode__(self):
+        return u"%s" % (self.Prefectures)
+
 class Texts(models.Model):
 #repetition of data from petitions
     Sort_key = models.CharField(max_length=255, blank=True, null=True)	
@@ -60,7 +69,7 @@ class Texts(models.Model):
     Original_or_copy = models.CharField(max_length=255, blank=True, null=True)	
     Date_in_Japanese = models.CharField(max_length=255, blank=True, null=True)		
     Paper_type = models.CharField(max_length=255, blank=True, null=True)	
-    Prefecture = models.CharField(max_length=255, blank=True, null=True, choices=((u'名古屋県', '名古屋県'),(u'名古屋県','膳所県')))	
+    Prefecture = models.ForeignKey('Prefectures', blank=True, null=True)	
     Detailed_location = models.CharField(max_length=255, blank=True, null=True)		
     Temp_residence = models.CharField(max_length=255, blank=True, null=True, choices=(('1', '1'),('2','2')))	
     Author_position = models.CharField(max_length=255, blank=True, null=True)	
