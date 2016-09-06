@@ -23,6 +23,8 @@ class AuthorsAdmin(ImportExportModelAdmin, admin.ModelAdmin):
     ordering = ('Author',)
     filter_horizontal = ('Petitions',)
     inlines = [TextsInline,]
+    list_filter = ('Status',)
+    
 
 class AuthorInline(admin.StackedInline):
     model = Authors.Petitions.through
@@ -39,12 +41,13 @@ class TextsResource(resources.ModelResource):
 class TextsAdmin(ImportExportModelAdmin, admin.ModelAdmin):
     list_display = ('Sort_key','Title','Year')
     resource_class = TextsResource
-    search_fields = ('Sort_key','Title','Year')
+    search_fields = ('Sort_key','Title','Clean_text', 'Year', 'Full_text_with_CR')
     ordering = ('Sort_key',)
 #    filter_horizontal = ('Authors',)
     readonly_fields = ("Last_action",)
     inlines = [AuthorInline,]
-
+    list_filter = ('Author',)
+    
 class PrefecturesResource(resources.ModelResource):
     class Meta:
         model = Prefectures
