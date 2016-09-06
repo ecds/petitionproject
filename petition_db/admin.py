@@ -50,7 +50,7 @@ class TextsAdmin(ImportExportModelAdmin, admin.ModelAdmin):
 #    filter_horizontal = ('Authors',)
     readonly_fields = ("Last_action",)
     inlines = [AuthorInline,]
-    list_filter = ('Author',)
+    list_filter = ('Date_unclear', 'Ravina_checked', 'Armstrong_checked')
     
 class PrefecturesResource(resources.ModelResource):
     class Meta:
