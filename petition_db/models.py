@@ -76,10 +76,10 @@ class Texts(models.Model):
     Author = models.CharField(max_length=255, blank=True, null=True)	
     Addressee = models.CharField(max_length=255, blank=True, null=True)	
     Archive = models.CharField(max_length=255, blank=True, null=True)	
-    Date_unclear = models.BooleanField(choices=BOOL_CHOICES, blank=True)		
+    Date_unclear = models.NullBooleanField(blank=True, null=True)		
     Title_source =  models.CharField(max_length=255, blank=True, null=True, choices=(('From text', 'From text'),('Assigned by editors','Assigned by editors'),('Assigned by institution','Assigned by institution')))	
-    Ravina_checked = models.BooleanField(choices=BOOL_CHOICES, blank=True)	
-    Armstrong_checked = models.BooleanField(choices=BOOL_CHOICES, blank=True)	
+    Ravina_checked = models.NullBooleanField(blank=True, null=True)	
+    Armstrong_checked = models.NullBooleanField(blank=True, null=True)	
     Corrections = models.TextField(blank=True, null=True)	
     Last_action = models.DateTimeField(auto_now=True)	
     Number_finder = models.CharField(max_length=255, blank=True, null=True)	#search result field - searches "Full Text" field for term"	
