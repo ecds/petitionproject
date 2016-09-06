@@ -65,7 +65,7 @@ class Texts(models.Model):
     Month = models.IntegerField(max_length=2, blank=True, null=True)	
     Day = models.IntegerField(max_length=2, blank=True, null=True)		
     Number_in_arabic_numbers = models.IntegerField(max_length=4, blank=True, null=True)
-    _Petition_number = models.IntegerField(db_column="Petition_number", blank=True, null=True)
+    Petition_number = models.CharField(max_length=255, db_column="Petition_number", blank=True, null=True)
     Original_or_copy = models.CharField(max_length=255, blank=True, null=True)	
     Date_in_Japanese = models.CharField(max_length=255, blank=True, null=True)		
     Paper_type = models.CharField(max_length=255, blank=True, null=True)	
@@ -93,9 +93,9 @@ class Texts(models.Model):
 #    Authors::Author_prefecture	
     Count = models.CharField(max_length=255, blank=True, null=True)	#search result field - searches "Full Text" field for term"
 
-    @property
-    def Petition_number(self):
-        return "%s_%s" % (self.Year, self.Number_in_arabic_numbers)
+#    @property
+#    def Petition_number(self):
+#        return "%s_%s" % (self.Year, self.Number_in_arabic_numbers)
 
 #    @Petition_number.setter
 #    def Petition_number(self, value):

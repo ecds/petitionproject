@@ -12,9 +12,13 @@ class TextsInline(admin.StackedInline):
     model = Texts.authors_set.related.through
 
 class AuthorsResource(resources.ModelResource):
+    Petitions = fields.Field(
+        column_name='Petitions',
+        attribute='Petitions',
+        widget=ManyToManyWidget(Texts, separator=', ', field='Petition_number'))
     class Meta:
         model = Authors
-        fields = ('id', 'Author', 'Author_prefecture', 'Birth_year', 'Death_year', 'Details', 'Office', 'Other_names', 'Rank', 'Romanized_name', 'Sources', 'Status', 'urls')
+        fields = ('id', 'Author', 'Petitions', 'Author_prefecture', 'Birth_year', 'Death_year', 'Details', 'Office', 'Other_names', 'Rank', 'Romanized_name', 'Sources', 'Status', 'urls')
         
 class AuthorsAdmin(ImportExportModelAdmin, admin.ModelAdmin):
     list_display = ('Author','Office','Romanized_name', 'Sources', 'Status')
@@ -36,7 +40,7 @@ class TextsResource(resources.ModelResource):
         widget=ForeignKeyWidget(Prefectures, 'Prefectures'))
     class Meta:
         model = Texts
-        fields = ('id', 'Sort_key', 'Title', 'Clean_text', 'Year', 'Month', 'Day', 'Number_in_arabic_numbers', 'Original_or_copy', 'Date_in_Japanese', 'Paper_type', 'Prefecture', 'Detailed_location', 'Temp_residence', 'Author_position', 'Author', 'Addressee', 'Archive', 'Date_unclear', 'Title_source', 'Ravina_checked', 'Armstrong_checked', 'Corrections', 'Full_text_with_CR')
+        fields = ('id', 'Sort_key', 'Title', 'Clean_text', 'Year', 'Month', 'Day', 'Number_in_arabic_numbers', 'Petition_number', 'Original_or_copy', 'Date_in_Japanese', 'Paper_type', 'Prefecture', 'Detailed_location', 'Temp_residence', 'Author_position', 'Author', 'Addressee', 'Archive', 'Date_unclear', 'Title_source', 'Ravina_checked', 'Armstrong_checked', 'Corrections', 'Full_text_with_CR')
 
 class TextsAdmin(ImportExportModelAdmin, admin.ModelAdmin):
     list_display = ('Sort_key','Title','Year')
